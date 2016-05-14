@@ -1,5 +1,35 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  section(id="subscribe" class="section-style" data-background-image="images/background/newsletter.jpg")
+    div(class="pattern height-resize")
+      div(class="container")
+        h3(class="section-name")
+          span Password Dictionary Generator
+        h2(class="section-title") Hack
+        p(class="section-description")
+          | From here you can launch the generation of a huge password Dictionary.
+          br
+          | It's directly created on a SQL Database hosted on Google Cloud&copy;
+        case generating
+          when true
+            p(class="section-description") Generating Dictionary...
+        form(class="news-letter" action="/generate" method="post")
+          div(class="subscribe-hide")
+            input(class="form-control" type="tel" id="char_length" name="user_char_length" placeholder="Enter the max length of the password you want"  required)
+            span(class="first-name-error")
+            button(type="submit" id="gen_submit" class="btn")
+              i(class="fa fa-cog", title="Launch Generation")
+            span(id="contact-loading" class="btn custom-btn col-xs-12")
+              i(class="fa fa-refresh fa-spin")
+            span(id="subscribe-loading" class="btn") 
+              i(class="fa fa-refresh fa-spin")
+            div(class="subscribe-error")
+          div(class="subscribe-message")
+        div(class="social-btn-container")
+          span(class="social-btn-box")
+            a(href="#" class="twitter-btn")
+              i(class="fa fa-database", title="See Database")
+      div(class="next-section")
+        a(class="go-to-contact")
+          span
