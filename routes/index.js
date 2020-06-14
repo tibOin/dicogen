@@ -5,9 +5,9 @@ var router = express.Router();
 function connect_to_db(callback) {
   // First you need to create a connection to the db
   var con = mysql.createConnection({
-    host: "130.211.110.8",
+    host: "130.211.110.80",
     user: "root",
-    password: "loup280892",
+    password: "loup280892", // Weak password findable on https://haveibeenpwned.com
     database: "dictionnaire"
   });
 
